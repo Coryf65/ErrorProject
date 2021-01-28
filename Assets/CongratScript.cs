@@ -7,22 +7,16 @@ public class CongratScript : MonoBehaviour
     public TextMesh Text;
     public ParticleSystem SparksParticles;
 
-    private List<string> TextToDisplay;
+    public List<string> TextToDisplay;
 
-    private float RotatingSpeed;
-    private float TimeToNextText;
+    private float RotatingSpeed = 1.0f;
+    [SerializeField] private float TimeToNextText = 0f;
 
-    private int CurrentText;
+    private int CurrentText = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        TimeToNextText = 0.0f;
-        CurrentText = 0;
-
-
-        RotatingSpeed = 1.0f;
-
         TextToDisplay.Add("Congratulation");
         TextToDisplay.Add("All Errors Fixed");
 
@@ -43,8 +37,7 @@ public class CongratScript : MonoBehaviour
             CurrentText++;
             if (CurrentText >= TextToDisplay.Count)
             {
-                CurrentText = 0;
-
+                CurrentText = 1;
 
                 Text.text = TextToDisplay[CurrentText];
             }
